@@ -1,0 +1,40 @@
+## mako
+<%!
+  from django.core.urlresolvers import reverse
+  from django.utils.translation import ugettext as _
+  from branding.api import get_footer
+%>
+<% footer = get_footer(is_secure=is_secure) %>
+<%namespace name='static' file='static_content.html'/>
+
+<div class="wrapper wrapper-footer">
+  <footer id="footer-openedx">
+    <div class="colophon">
+      <nav class="nav-colophon">
+        <ol>
+          <li><a href="${reverse('about')}">關於</a></li>
+        </ol>
+      </nav>
+
+      <p class="copyright">© 2016 Open Edu 中華開放教育平台，保留部分權利</p>
+        <nav class="nav-legal">
+          <ul>
+            <li class="nav-legal-01">
+              <a href="${reverse('tos')}#privacy">隱私權保護與資訊安全政策</a>
+            </li>
+            <li class="nav-legal-01">
+              <a href="${reverse('tos')}">服務條款</a>
+            </li>
+          </ul>
+        </nav>
+    </div>
+
+    <div class="powered-by">
+      <p>
+        <a href="http://openedx.org/">
+          <img src="https://s3.amazonaws.com/files.edx.org/openedx-logos/edx-openedx-logo-tag.png" alt="Powered by Open edX" width="150" height="50" />
+        </a>
+      </p>
+    </div>
+  </footer>
+</div>
